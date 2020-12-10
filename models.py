@@ -1,13 +1,16 @@
 from peewee import PostgresqlDatabase, Model, AutoField, CharField, IntegerField
 import os
-# import private
+import private
 
+
+var = os.getenv('DATABASE')
+print(var)
 database = PostgresqlDatabase(
-    os.getenv(DATABASE),
-    os.getenv(USER),
-    os.getenv(PASSWORD),
-    os.getenv(HOST),
-    os.getenv(PORT)
+    os.getenv('DATABASE'),
+    os.getenv('USER'),
+    os.getenv('PASSWORD'),
+    os.getenv('HOST'),
+    os.getenv('MYPORT')
     # database=private.DATABASE,
     # user=private.USER,
     # password=private.PASSWORD,
