@@ -1,4 +1,3 @@
-from private import DATABASE
 from peewee import PostgresqlDatabase, Model, AutoField, CharField, IntegerField
 import os
 # import private
