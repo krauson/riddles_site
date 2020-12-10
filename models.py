@@ -1,5 +1,4 @@
-from enum import unique
-from peewee import *
+from peewee import SqliteDatabase, Model, AutoField, CharField, IntegerField
 
 
 database = SqliteDatabase('users.db')
