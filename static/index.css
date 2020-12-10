@@ -1,0 +1,26 @@
+h1{
+    background-color: aqua;
+    color: purple;
+    text-align: center;
+}
+
+button{
+    color: yellow;
+    text-align: right;
+}
+
+h6{
+    margin: 10rem;
+}
+
+form.user{
+    text-align: center;
+}
+
+button.nav_linkes{
+    text-align: center;
+}
+
+div.riddles-link{
+    text-align: center;
+}
