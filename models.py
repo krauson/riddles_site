@@ -1,14 +1,19 @@
+from private import DATABASE
 from peewee import PostgresqlDatabase, Model, AutoField, CharField, IntegerField
-import private
-import psycopg2
-
+import os
+# import private
 
 database = PostgresqlDatabase(
-    private.DATABASE,
-    user=private.USER,
-    password=private.PASSWORD,
-    host=private.HOST,
-    port=private.PORT,
+    os.getenv(DATABASE),
+    os.getenv(USER),
+    os.getenv(PASSWORD),
+    os.getenv(HOST),
+    os.getenv(PORT)
+    # database=private.DATABASE,
+    # user=private.USER,
+    # password=private.PASSWORD,
+    # host=private.HOST,
+    # port=private.PORT,
 )
 
 class UnknownField(object):
