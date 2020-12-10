@@ -1,7 +1,15 @@
-from peewee import SqliteDatabase, Model, AutoField, CharField, IntegerField
+from peewee import PostgresqlDatabase, Model, AutoField, CharField, IntegerField
+import private
+import psycopg2
 
 
-database = SqliteDatabase('users.db')
+database = PostgresqlDatabase(
+    private.DATABASE,
+    user=private.USER,
+    password=private.PASSWORD,
+    host=private.HOST,
+    port=private.PORT,
+)
 
 class UnknownField(object):
     def __init__(self, *_, **__): pass
