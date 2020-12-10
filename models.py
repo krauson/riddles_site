@@ -1,6 +1,6 @@
 from peewee import PostgresqlDatabase, Model, AutoField, CharField, IntegerField
 import os
-import private
+# import private
 
 
 var = os.getenv('DATABASE')
