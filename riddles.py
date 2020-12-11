@@ -1,6 +1,5 @@
+# upload 266
 import requests
-from flask import request
-
 
 
 def get_riddle():
@@ -26,6 +25,7 @@ def get_list_from_str(str_of_list):
 
 def format_str(str_param):
     formated = str_param.replace('&quot;', '\"')
-    formated = formated.replace('&#039;','\'') 
-    formated = formated.replace('&amp;','&') 
+    formated = formated.replace('&#039;', '\'')
+    formated = formated.replace('&amp;', '&')
+    formated = formated.replace('&shy;', '-')
     return formated

@@ -1,28 +1,10 @@
-from peewee import SqliteDatabase, CharField, IntegerField, AutoField
-from models import User, Model
-
-db = SqliteDatabase('users.db')
-
-
-class UnknownField(object):
-    def __init__(self, *_, **__): pass
-
-class BaseModel(Model):
-    class Meta:
-        database = db
-
-class User(BaseModel):
-    password = CharField(null=True)
-    points = IntegerField(null=True)
-    user_id = AutoField(null=True)
-    username = CharField(null=True)
-
-    class Meta:
-        table_name = 'users'
+# upload 266
+from peewee import PostgresqlDatabase
+from models import User, database
 
 
 def create_table():
-    db.create_tables([User])
+    database.create_tables([User])
 
 
 def get_user_id(username):
@@ -42,10 +24,9 @@ def is_user_exists(username):
         return False
 
 
-def create_user(username , password):
-    
+def create_user(username, password):
     if not is_user_exists(username):
-        User.create(username = username, password = password, points = 0)
+        User.create(username=username, password=password, points=0)
         user_id = get_user_id(username)
         return user_id
     else:
@@ -55,10 +36,10 @@ def create_user(username , password):
 def add_points(username):
     AMOUNT = 5
     User.update(
-        {User.points: User.points+ AMOUNT}).where(
+        {User.points: User.points + AMOUNT}).where(
             User.username == username).execute()
     return None
-    
+
 
 def check_username_password(username, password):
     try:

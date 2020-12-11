@@ -1,17 +1,12 @@
-from flask import Flask, render_template, request
-from riddles import get_riddle, get_list_from_str, format_str
-from models import database
-from pwe_curd import (create_user, create_table, check_username_password,
-                        add_points, get_users_scores)
+# upload 266
 import random
 
-# todo
-# 1. bug in answer with more than one word, correct_answer from dict returns only one word and not the 
-#     whole sentence, but why?
-# 2. decorate.
-# 3. upload to heroku.
-# 4. erase print for debug
+from flask import Flask, render_template, request
 
+from models import database
+from pwe_curd import (add_points, check_username_password, create_table,
+                      create_user, get_users_scores)
+from riddles import format_str, get_list_from_str, get_riddle
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
@@ -27,13 +22,13 @@ def riddles():
     str1 = 'hello my name is hagai'
     former_correct_answer = request.args.get('correct_answer')
     msg = None
-    if former_correct_answer != None:
+    if former_correct_answer is not None:
         former_possible_answers = request.args.get('possible_answers')
         former_possible_answers = get_list_from_str(former_possible_answers)
         for i in range(len(former_possible_answers)):
             former_possible_answers[i] = format_str(former_possible_answers[i])
         chosen_num = request.args.get('user_answer')
-        chosen_num = int(chosen_num) -1
+        chosen_num = int(chosen_num) - 1
         user_answer = former_possible_answers[chosen_num]
         if former_correct_answer == user_answer:
             username = request.args.get('username')
@@ -41,7 +36,7 @@ def riddles():
             msg = '{} was a correct answer! you earned 5 points:)'
             msg = msg.format(former_correct_answer)
         else:
-            msg='Wrong answer.. the correct answer was: {}'
+            msg = 'Wrong answer.. the correct answer was: {}'
             msg = msg.format(former_correct_answer)
 
     riddle = get_riddle()
@@ -53,15 +48,17 @@ def riddles():
     for i in range(len(possible_answers)):
         possible_answers[i] = format_str(possible_answers[i])
 
-    correct_answer = riddle['correct_answer'] 
+    correct_answer = riddle['correct_answer']
     correct_answer = format_str(correct_answer)
 
     random.shuffle(possible_answers)
 
     print(f'current correct answer: {correct_answer}')
 
-    return render_template('riddles_page.html', msg=msg, possible_answers=possible_answers,
-    correct_answer=correct_answer, question=question, username=username, str1=str1)
+    return render_template('riddles_page.html', msg=msg,
+     possible_answers=possible_answers,
+    correct_answer=correct_answer,
+     question=question, username=username, str1=str1)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -76,13 +73,14 @@ def register():
     else:
         is_added = create_user(username, password)
         print(f'the answer is {is_added}')
-        if bool(is_added) == True:
+        if bool(is_added) is True:
             user_status = 'Welcome you are user number {} in our website!'.format(is_added)
         else:
             user_status = 'Error! The name {} is already taken.'.format(username)
 
         print(f'is valid :{is_added}')
-        return render_template('register.html',username=username, user_status=user_status, is_added=is_added)
+        return render_template('register.html', username=username,
+         user_status=user_status, is_added=is_added)
 
 
 @app.before_request
@@ -94,6 +92,7 @@ def _db_connect():
 def _db_close(_):
     if not database.is_closed():
         database.close()
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -109,7 +108,7 @@ def login():
             msg = 'welcome {}, so good to see you again:)'.format(username)
             is_valid = True
             return render_template('login.html', username=username,
-             msg=msg, is_valid = is_valid)
+             msg=msg, is_valid=is_valid)
         else:
             msg = 'Error! username or password incorrect'
             return render_template('login.html', msg=msg)
@@ -121,6 +120,7 @@ def show_score_table():
     users = get_users_scores()
     username = request.args.get('username')
     return render_template('scores_table.html', users=users, username=username)
+
 
 if __name__ == '__main__':
     app.run()
