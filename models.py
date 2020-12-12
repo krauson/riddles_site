@@ -9,6 +9,19 @@ database = PostgresqlDatabase(
     host=os.getenv('HOST'),
     port=os.getenv('MYPORT')
 )
+# os.getenv('DATABASE_URL'),
+# user=os.getenv('USER'),
+# password=os.getenv('PASSWORD'),
+# host=os.getenv('HOST'),
+# port=os.getenv('MYPORT')
+
+# print(os.getenv('DATABASE_URL'))
+# print(os.getenv('DATABASE_NAME'))
+# print(user)
+# print(password)
+# print(host)
+# print(port)
+
 
 
 class UnknownField(object):
