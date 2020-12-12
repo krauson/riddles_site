@@ -3,7 +3,7 @@ import os
 
 
 database = PostgresqlDatabase(
-    os.getenv('DATABASE_URL'),
+    os.getenv('DATABASE_NAME'),
     user=os.getenv('USER'),
     password=os.getenv('PASSWORD'),
     host=os.getenv('HOST'),
