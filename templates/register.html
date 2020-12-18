@@ -10,7 +10,7 @@
         <input type="password" id="password" name="password" required><br><br>
         </div>
         <div>
-            <button type="submit" class="btn btn-primary">register!</button>
+            <button type="submit" class="btn btn-primary">register</button>
         </div>
         <br>
 
@@ -23,8 +23,8 @@
     {% endif %}
     
     <div>
-        {% if msg %}
-            {{msg}}
+        {% if user_status %}
+            {{user_status}}
         {% endif %}
     </div>
 

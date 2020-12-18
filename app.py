@@ -74,13 +74,15 @@ def register():
         is_added = create_user(username, password)
         print(f'the answer is {is_added}')
         if bool(is_added) is True:
+            is_valid = True
             user_status = f'Welcome {username}, you are user number {is_added} in our website!'
         else:
+            is_valid = False
             user_status = f'Error! The name {username} is already taken.'
 
         print(f'is valid :{is_added}')
         return render_template('register.html', username=username,
-         user_status=user_status, is_added=is_added)
+         user_status=user_status, is_valid=is_valid)
 
 
 @app.before_request
