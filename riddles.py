@@ -28,4 +28,8 @@ def format_str(str_param):
     formated = formated.replace('&#039;', '\'')
     formated = formated.replace('&amp;', '&')
     formated = formated.replace('&shy;', '-')
+    formated = formated.replace('&ldquo;', '\"')
+    formated = formated.replace('&rdquo;', '\"')
+    formated = formated.replace('&hellip;', '...')
+    
     return formated
