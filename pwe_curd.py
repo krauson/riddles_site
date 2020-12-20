@@ -52,5 +52,5 @@ def check_username_password(username, password):
 
 def get_users_scores():
     print('scores_table')
-    users = User.select().order_by(User.points.desc()).limit(5)
+    users = User.select().order_by(User.points.desc()).limit(10)
     return users
