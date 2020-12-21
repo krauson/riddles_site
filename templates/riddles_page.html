@@ -17,11 +17,11 @@
                 <input type="radio" id="question" name="user_answer" value="3">
                 <label for="question">{{possible_answers[2]}}</label><br>
                 <input type="radio" id="question" name="user_answer" value="4">
-                <label for="question">{{possible_answers[3]}}</label><br>
+                <label for="question">{{possible_answers[3]}}</label><br><br>
                 <input type="hidden" name="username" value={{username}}>
                 <input type="hidden" name="correct_answer" value="{{correct_answer}}">
-                <input type="hidden" name=possible_answers value="{{possible_answers}}"><br>
-                <input type="hidden" name=str1 value="{{str1}}"><br>
+                <input type="hidden" name=possible_answers value="{{possible_answers}}">
+                <input type="hidden" name=str1 value="{{str1}}">
                 <button type="submit" class="btn btn-success">submit</button>
             </p>
         </form>
@@ -29,9 +29,9 @@
 
     <div class="center">
         <a href="/scores?username={{username}}">
-        <button type="submit" class="btn btn-info" >
-           See scores table
-        </button>
-    </a>
+            <button type="submit" class="btn btn-info" >
+            See scores table
+            </button>
+        </a>
     </div>
 {% endblock %}
