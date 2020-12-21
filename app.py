@@ -33,10 +33,10 @@ def riddles():
         if former_correct_answer == user_answer:
             username = request.args.get('username')
             add_points(username)
-            msg = '{} was a correct answer! you earned 5 points:)'
+            msg = '{} was a correct answer! you earned 5 points:)\n'
             msg = msg.format(former_correct_answer)
         else:
-            msg = 'Wrong answer.. the correct answer was: {}'
+            msg = 'Wrong answer.. the correct answer was: {}\n'
             msg = msg.format(former_correct_answer)
 
     riddle = get_riddle()
@@ -50,6 +50,7 @@ def riddles():
 
     correct_answer = riddle['correct_answer']
     correct_answer = format_str(correct_answer)
+
 
     random.shuffle(possible_answers)
 

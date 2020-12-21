@@ -1,4 +1,11 @@
-/* upload 266 */
+body{
+    background-image: url('riddles.jpg');
+    /* height: 100%; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 h1{
     background-color: aqua;
     color: purple;
@@ -43,4 +50,16 @@ div.center{
 #riddles{
     text-align: center;
     margin-left: 28rem;
+}
+
+.center{
+    text-align: center;
+    color: rgb(151, 42, 146);
+    font-weight: bolder;
+}
+
+p.question{
+    font-size: 2rem;
+    padding: 1rem;
+    margin: 10px;
 }
