@@ -1,6 +1,5 @@
 body{
-    background-image: url('riddles.jpg');
-    /* height: 100%; */
+    background-image: url('images/riddles.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,8 +33,6 @@ table, td, th{
 #home_link{
     font-size: 1.2rem;
     text-align: center;
-    /* margin-left: 20rem; */
-    /* margin-left: 30rem; */
 }
 
 #nav_links{
