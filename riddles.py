@@ -31,5 +31,5 @@ def format_str(str_param):
     formated = formated.replace('&ldquo;', '\"')
     formated = formated.replace('&rdquo;', '\"')
     formated = formated.replace('&hellip;', '...')
-    
+    formated = formated.replace('&rsquo;', '\'')    
     return formated

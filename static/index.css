@@ -61,3 +61,7 @@ p.question{
     padding: 1rem;
     margin: 10px;
 }
+
+p.answers{
+    margin-left: 8rem;
+}
