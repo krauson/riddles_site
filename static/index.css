@@ -71,6 +71,7 @@ button.btn.btn-success{
     margin-left: 8rem;
 }
 
-#riddles{
+button#riddles{
     text-align: center;
+    font-size: 3rem;
 }
