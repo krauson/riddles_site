@@ -37,7 +37,7 @@ table, td, th{
 
 #nav_links{
     text-align: right;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 div.center{
@@ -70,3 +70,4 @@ p.answers{
 button.btn.btn-success{
     margin-left: 8rem;
 }
+
