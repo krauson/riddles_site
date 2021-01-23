@@ -1,4 +1,0 @@
-# upload 266
-DEBUG = True
-TESTING = True
-TEMPLATES_AUTO_RELOAD = True
