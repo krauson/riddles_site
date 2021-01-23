@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <table>
+            <tr>
+                <th>username</th>
+                <th>total pointes</th>
+            </tr>
+        {% for user in users %}
+        <tr>
+            <td>
+                {{user.username}}
+            </td>
+            <td>
+                {{user.points}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <button id="riddles"><a href="/riddles?username={{username}}">see more questions</a></button>
+{% endblock %}
