@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form action="/login" method="POST" class="user">
+        <div>
+        <label for="username">username:</label>
+        <input type="text" id="username" name="username" autofocus required><br><br>
+        </div>
+        <div>
+        <label for="username">password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">login</button>
+        </div>
+        <br>
+
+    {% if is_valid %}
+        <button class="btn btn-warning">
+            <a href="/riddles?username={{username}}">
+            start solving some questions!
+            </a>
+        </button>
+
+    {% endif %}
+    </form>
+    <div class="center">
+        {% if msg %}
+            {{msg}}
+        {% endif %}
+    </div>
+{% endblock %}
